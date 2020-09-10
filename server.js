@@ -7,7 +7,31 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// const exerciseRouter = require("./routes/exercise");
+// const indexRouter = require("./routes/index");
+// const statsRouter = require("./routes/stats");
+const mongoose = require("mongoose");
+const db = mongoose.connection;
+
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+db.on("error", error => console.error(error));
+db.once("open", () => console.log("connected to mongoose"));
+
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+require("./routes/exercise")(app);
+require("./routes/index")(app);
+require("./routes/stats")(app);
+
+// app.get("/", indexRouter);
+// app.get("/stats", statsRouter);
+// app.get("/exercise", exerciseRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening on port: http://localhost:${PORT}`);
