@@ -30,8 +30,7 @@ app.use(express.json());
 // require("./routes/index")(app);
 // require("./routes/stats")(app);
 
-// Why doesn't the ones with the two arguments work?
-app.use("*", indexRouter);
+app.use("/", indexRouter);
 app.use("/stats", statsRouter);
 app.use("/exercise", exerciseRouter);
 
