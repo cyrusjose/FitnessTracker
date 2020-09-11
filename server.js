@@ -7,8 +7,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// const exerciseRouter = require("./routes/exercise");
-// const indexRouter = require("./routes/index");
+const exerciseRouter = require("./routes/exercise");
+const indexRouter = require("./routes/index");
 const statsRouter = require("./routes/stats");
 
 const mongoose = require("mongoose");
@@ -26,13 +26,14 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./routes/exercise")(app);
-require("./routes/index")(app);
+// require("./routes/exercise")(app);
+// require("./routes/index")(app);
 // require("./routes/stats")(app);
 
-// app.use("/", indexRouter);
+// Why doesn't the ones with the two arguments work?
+app.use("*", indexRouter);
 app.use("/stats", statsRouter);
-// app.use("/exercise", exerciseRouter);
+app.use("/exercise", exerciseRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening on port: http://localhost:${PORT}`);
