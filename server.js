@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3000;
 
 // const exerciseRouter = require("./routes/exercise");
 // const indexRouter = require("./routes/index");
-// const statsRouter = require("./routes/stats");
+const statsRouter = require("./routes/stats");
+
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 
@@ -27,11 +28,11 @@ app.use(express.json());
 
 require("./routes/exercise")(app);
 require("./routes/index")(app);
-require("./routes/stats")(app);
+// require("./routes/stats")(app);
 
-// app.get("/", indexRouter);
-// app.get("/stats", statsRouter);
-// app.get("/exercise", exerciseRouter);
+// app.use("/", indexRouter);
+app.use("/stats", statsRouter);
+// app.use("/exercise", exerciseRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening on port: http://localhost:${PORT}`);
