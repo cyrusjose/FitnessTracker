@@ -35,7 +35,7 @@ Follow the link below to the deployed site and enter the workouts that you would
 #### SnapShots
 
 <img src = "./public/images/main.png">
-<img src = "./public/images/exercise.png">
+<img src = "./public/images/exercises.png">
 <img src = "./public/images/dash.png">
 
 
