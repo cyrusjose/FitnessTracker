@@ -7,9 +7,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const exerciseRouter = require("./routes/exercise");
-const indexRouter = require("./routes/index");
-const statsRouter = require("./routes/stats");
+const apiRouter = require("./routes/apiRoutes");
+const htmlRouter = require("./routes/htmlRoutes");
 
 const mongoose = require("mongoose");
 const db = mongoose.connection;
@@ -30,9 +29,8 @@ app.use(express.json());
 // require("./routes/index")(app);
 // require("./routes/stats")(app);
 
-app.use("/", indexRouter);
-app.use("/stats", statsRouter);
-app.use("/exercise", exerciseRouter);
+app.use(apiRouter);
+app.use(htmlRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening on port: http://localhost:${PORT}`);
