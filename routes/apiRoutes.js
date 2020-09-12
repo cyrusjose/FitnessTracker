@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Exercise = require("../models/exercise");
 
+// =========================== Main workout Page ===========================
+
 router.get("/workouts", (req, res) => {
   Exercise.find({})
     .then(data => {
@@ -21,6 +23,8 @@ router.post("/workouts", (req, res) => {
       res.json(err);
     });
 });
+
+// =========================== Stats Page ===========================
 
 router.get("/workouts/range", (req, res) => {
   Exercise.find({})
@@ -42,5 +46,20 @@ router.post("/workouts/range", (req, res) => {
     });
 });
 
+// =========================== Update a workout ===========================
+
+router.put("/workouts/:id", ({ body, params }, res) => {
+  Exercise.findByIdAndUpdate(
+    params.id,
+    { $push: { exercises: body } },
+    { new: true, runValidators: true }
+  )
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 module.exports = router;
