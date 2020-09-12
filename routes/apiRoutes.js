@@ -22,10 +22,25 @@ router.post("/workouts", (req, res) => {
     });
 });
 
-module.exports = router;
+router.get("/workouts/range", (req, res) => {
+  Exercise.find({})
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-// module.exports = app => {
-//   app.get("/exercise", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../public/exercise.html"));
-//   });
-// };
+router.post("/workout/range", (req, res) => {
+  Exercise.create({})
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+
+module.exports = router;
