@@ -4,8 +4,8 @@ const Exercise = require("../models/exercise");
 
 // =========================== Main workout Page ===========================
 
-router.get("/workouts", (req, res) => {
-  Exercise.find({})
+router.get("/api/workouts", (req, res) => {
+  Exercise.find()
     .then(data => {
       res.json(data);
     })
@@ -14,7 +14,7 @@ router.get("/workouts", (req, res) => {
     });
 });
 
-router.post("/workouts", (req, res) => {
+router.post("/api/workouts", (req, res) => {
   Exercise.create({})
     .then(data => {
       res.json(data);
@@ -26,8 +26,8 @@ router.post("/workouts", (req, res) => {
 
 // =========================== Stats Page ===========================
 
-router.get("/workouts/range", (req, res) => {
-  Exercise.find({})
+router.get("/api/workouts/range", (req, res) => {
+  Exercise.find()
     .then(data => {
       res.json(data);
     })
@@ -36,7 +36,7 @@ router.get("/workouts/range", (req, res) => {
     });
 });
 
-router.post("/workouts/range", (req, res) => {
+router.post("/api/workouts/range", (req, res) => {
   Exercise.create({})
     .then(data => {
       res.json(data);
@@ -48,7 +48,7 @@ router.post("/workouts/range", (req, res) => {
 
 // =========================== Update a workout ===========================
 
-router.put("/workouts/:id", ({ body, params }, res) => {
+router.put("/api/workouts/:id", ({ body, params }, res) => {
   Exercise.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
