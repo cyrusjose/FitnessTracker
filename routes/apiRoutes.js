@@ -32,7 +32,7 @@ router.get("/workouts/range", (req, res) => {
     });
 });
 
-router.post("/workout/range", (req, res) => {
+router.post("/workouts/range", (req, res) => {
   Exercise.create({})
     .then(data => {
       res.json(data);
