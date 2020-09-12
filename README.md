@@ -29,6 +29,16 @@ Installation requirements:
 
 Follow the link below to the deployed site and enter the workouts that you would like to track and view them on the dashboard page when you click the dashboard tab.
 
+### Link Deployed Site
+-https://workoutandfitness.herokuapp.com/
+
+#### SnapShots
+
+<img src = "./public/images/main.png">
+<img src = "./public/images/exercise.png">
+<img src = "./public/images/dash.png">
+
+
 ## License
 
 The chosen license for this application is MIT. Please follow the link below for more imformation about the license.
