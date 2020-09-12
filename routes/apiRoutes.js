@@ -1,11 +1,19 @@
-const path = require("path");
 const express = require("express");
 const router = express.Router();
 const Exercise = require("../models/exercise");
 
+router.get("/workouts", (req, res) => {
+  Exercise.find({})
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-router.get("/api/workouts", (req,res) => {
-  Exercise.find()
+router.post("/workouts", (req, res) => {
+  Exercise.create({})
     .then(data => {
       res.json(data);
     })
