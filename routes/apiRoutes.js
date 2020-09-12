@@ -3,10 +3,6 @@ const express = require("express");
 const router = express.Router();
 const Exercise = require("../models/exercise");
 
-router.get("/", (req, res) => {
-  //   res.send("hello world");
-  res.sendFile(path.join(__dirname, "../public/exercise.html"));
-});
 
 router.get("/api/workouts", (req,res) => {
   Exercise.find()
