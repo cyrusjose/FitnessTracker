@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
 
-router.get("/workouts", () => {
-  Exercise.find({})
+router.get("/api/workouts", (req,res) => {
+  Exercise.find()
     .then(data => {
       res.json(data);
     })
