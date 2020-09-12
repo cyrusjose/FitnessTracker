@@ -9,7 +9,7 @@ const exerciseSchema = new mongoose.Schema(
           trim: true,
           required: true
         },
-        exType: {
+        type: {
           type: String,
           trim: true,
           required: true
