@@ -27,9 +27,6 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// require("./routes/exercise")(app);
-// require("./routes/index")(app);
-// require("./routes/stats")(app);
 
 app.use(apiRouter);
 app.use(htmlRouter);
